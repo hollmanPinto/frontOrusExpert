@@ -107,23 +107,23 @@
 	<div class="modal-body">
 		<div class="row">
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value="">
+				<input type="text" #txtNameNew class="form-control" id="floatingInput" value="">
 				<label for="floatingInput">Name</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value="">
+				<input type="text" #txtNitNew class="form-control" id="floatingInput" value="">
 				<label for="floatingInput">Identification</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value="">
+				<input type="text" #txtBussinessNew  class="form-control" id="floatingInput" value="">
 				<label for="floatingInput">Business Name</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value="">
+				<input type="text" #txtDateNew class="form-control" id="floatingInput" value="">
 				<label for="floatingInput">Application Date</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value="">
+				<input type="text" #txtAttendantNew  class="form-control" id="floatingInput" value="">
 				<label for="floatingInput">Attendant Name</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
@@ -139,7 +139,8 @@
 	</div>
 	<br>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="modal.close()">Insert</button>
+		<button type="button" class="btn btn-success" (click)="insertCompany(txtNameNew.value,txtNitNew.value
+		,txtBussinessNew.value,txtDateNew.value,txtAttendantNew.value)">Insert</button>
 	</div>
 </ng-template>
 
@@ -154,23 +155,23 @@
 	<div class="modal-body">
 		<div class="row">
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].Name}}>
+				<input type="text" #txtNameNew class="form-control" id="floatingInput" value={{companyList[index].Name}}>
 				<label for="floatingInput">Name</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].NIT}}>
+				<input type="text" #txtNitNew class="form-control" id="floatingInput" value={{companyList[index].NIT}}>
 				<label for="floatingInput">Identification</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].businessName}}>
+				<input type="text" #txtBussinessNew class="form-control" id="floatingInput" value={{companyList[index].businessName}}>
 				<label for="floatingInput">Business Name</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].applicationDate}}>
+				<input type="text" #txtDateNew class="form-control" id="floatingInput" value={{companyList[index].applicationDate}}>
 				<label for="floatingInput">Application Date</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].attendant}}>
+				<input type="text" #txtAttendantNew class="form-control" id="floatingInput" value={{companyList[index].attendant}}>
 				<label for="floatingInput">Attendant Name</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
@@ -185,13 +186,7 @@
 		</div>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="modal.close()">Update</button>
+		<button type="button" class="btn btn-success" (click)="UpdateCompany(txtNameNew.value,txtNitNew.value
+		,txtBussinessNew.value,txtDateNew.value,txtAttendantNew.value)">Update</button>
 	</div>
-</ng-template>
-
-<!--DELETE BEHAVIORAL-->
-<ng-template #delete>
-	<div class="alert alert-light" role="alert">
-		This is a light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-	      </div>
 </ng-template>
