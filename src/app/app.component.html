@@ -1,0 +1,197 @@
+<br>
+<div class="container">
+	<div class="row col-lg-12 col-sm-12 text-center">
+		<h1 class="fw-light">List Of Companies</h1>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-lg-4 col-12">
+			<div class="row">
+				<div class="col-4 d-block d-sm-block d-md-none">
+					<button type="button" class="btn btn-warning" (click)="modal.open(insert)">Insert</button>
+				</div>
+				<div class="col-4 d-block d-sm-block d-md-none">
+					<button type="button" class="btn btn-warning" (click)="modal.open(update)">Update</button>
+				</div>
+				<div class="col-4 d-block d-sm-block d-md-none">
+					<button type="button" class="btn btn-danger">Delete</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-2 d-none d-sm-none d-md-block">
+			<div class="row">
+				<div class="col-lg-4 d-none d-sm-none d-md-block">
+					<button type="button" class="btn btn-warning" (click)="modal.open(insert)">Insert</button>
+				</div>
+				<div class="col-lg-4 d-none d-sm-none d-md-block">
+					<button type="button" class="btn btn-warning" (click)="modal.open(update)">Update</button>
+				</div>
+				<div class="col-lg-4 d-none d-sm-none d-md-block">
+					<button type="button" class="btn btn-danger" (click)="deleteAlert()">Delete</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-2 d-none d-sm-none d-md-block"></div>
+	</div>
+	<div class=row>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value={{companyList[index].Name}}>
+			<label for="floatingInput">Name</label>
+		</div>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value={{companyList[index].NIT}}>
+			<label for="floatingInput">Identification</label>
+		</div>
+	</div>	
+	<div class=row>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value={{companyList[index].businessName}}>
+			<label for="floatingInput">Business Name</label>
+		</div>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value={{companyList[index].applicationDate}}>
+			<label for="floatingInput">Application Date</label>
+		</div>
+	</div>
+	<div class=row>
+		<div *ngIf="companyList[0].status;else falseBlock" class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value="Validate">
+			<label for="floatingInput">Company Status</label>
+		</div>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value={{companyList[index].attendant}}>
+			<label for="floatingInput">Attendant Name</label>
+		</div>
+	</div>
+	
+	<ng-template #falseBlock>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2 ">
+			<input readonly type="text" class="form-control" id="floatingInput" value="Decline">
+			<label for="floatingInput">Company Status</label>
+		</div>
+	</ng-template>
+
+	<br>
+	<div class="row">
+		<div class="col-3 d-block d-sm-block d-md-none"></div>
+		<div class="col-3 d-block d-sm-block d-md-none">
+			<button type="button" class="btn btn-success btn-sm" (click)="decrementCompany()">Back</button>
+		</div>
+		<div class="col-3 d-block d-sm-block d-md-none">
+			<button type="button" class="btn btn-info btn-sm" (click)="incrementCompany()">Next</button>
+		</div>
+		<div class="col-3 d-block d-sm-block d-md-none"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-2 d-none d-sm-none d-md-block"></div>
+		<div class="col-md-2 d-none d-sm-none d-md-block"></div>
+		<div class="col-md-2 d-none d-sm-none d-md-block">
+			<button type="button" class="btn btn-success btn-sm" (click)="decrementCompany()">Back Company</button>
+		</div>
+		<div class="col-md-2 d-none d-sm-none d-md-block">
+			<button type="button" class="btn btn-info btn-sm "(click)="incrementCompany()">Next Company</button>
+		</div>
+		<div class="col-md-2 d-none d-sm-none d-md-block"></div>
+		<div class="col-md-2 d-none d-sm-none d-md-block"></div>
+	</div>
+</div>
+
+<!--INSERT COMPANY MODAL-->
+<ng-template #insert let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Insert Company</h4>
+		<button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Name</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Identification</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Business Name</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Application Date</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Attendant Name</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<div ngbDropdown>
+					<button class={{btnStyle}} id="gfg" ngbDropdownToggle>{{validateButton}}</button>
+					<div ngbDropdownMenu="gfg">
+					  	<button ngbDropdownItem (click)="statusValidateButton()">Validate!</button>
+					  	<button ngbDropdownItem (click)="statusDeclineButton()">Decline!</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-success" (click)="modal.close()">Insert</button>
+	</div>
+</ng-template>
+
+<!--UPDATE COMPANY MODAL-->
+<ng-template #update let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Update Company</h4>
+		<button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].Name}}>
+				<label for="floatingInput">Name</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].NIT}}>
+				<label for="floatingInput">Identification</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].businessName}}>
+				<label for="floatingInput">Business Name</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].applicationDate}}>
+				<label for="floatingInput">Application Date</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" class="form-control" id="floatingInput" value={{companyList[index].attendant}}>
+				<label for="floatingInput">Attendant Name</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<div ngbDropdown>
+					<button class={{btnStyle}} id="gfg" ngbDropdownToggle>{{validateButton}}</button>
+					<div ngbDropdownMenu="gfg">
+					  	<button ngbDropdownItem (click)="statusValidateButton()">Validate!</button>
+					  	<button ngbDropdownItem (click)="statusDeclineButton()">Decline!</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-success" (click)="modal.close()">Update</button>
+	</div>
+</ng-template>
+
+<!--DELETE BEHAVIORAL-->
+<ng-template #delete>
+	<div class="alert alert-light" role="alert">
+		This is a light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+	      </div>
+</ng-template>
