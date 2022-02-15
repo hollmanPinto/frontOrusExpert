@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CompaniesService } from './services/companies.service';
+import { UsuariosService } from './services/usuarios.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
   title = 'frontend';
-  companyList: any = [];
+  userList: any = [];
   index:number=0;
   closeResult:string='';
   validateButton:string='Status';
@@ -29,21 +29,23 @@ export class AppComponent implements OnInit{
   IdCompany:string='';
 
   constructor(
-    private companyService:CompaniesService, 
+    private usuarioService:UsuariosService, 
     public modal:NgbModal,
     private http:HttpClient
     ){ }
 
   ngOnInit(): void{
-    console.log('component initialize');
-    this.companyService.getCompanies()
-      .subscribe((response :any ) => this.companyList = response);  
+    this.usuarioService.getUsers()
+      .subscribe((response :any ) => this.userList = response);  
+      
   }
-  incrementCompany(){
-    this.index==this.companyList.length-1?this.index=0:this.index+=1
+
+  incrementUser(){
+    this.index==this.userList.length-1?this.index=0:this.index+=1
+    console.log(this.userList)
   }
-  decrementCompany(){
-    this.index==0?this.index=this.companyList.length-1:this.index-=1
+  decrementUser(){
+    this.index==0?this.index=this.userList.length-1:this.index-=1
   }
   statusValidateButton(){
     this.validateButton='Validate!'
@@ -58,8 +60,8 @@ export class AppComponent implements OnInit{
   deleteAlert() {
     const confirmed=window.confirm('Are you Sure delete this Company?');
     if(confirmed){
-      this.IdCompany=this.companyList[this.index].url;
-      this.companyService.deleteCompanies(this.IdCompany).subscribe((result)=>{
+      this.IdCompany=this.userList[this.index].url;
+      this.usuarioService.deleteCompanies(this.IdCompany).subscribe((result)=>{
       console.warn(this.IdCompany)
       window.location.reload();
       
@@ -69,38 +71,45 @@ export class AppComponent implements OnInit{
   }
 
   //Function for insert additional companies in DB
-  insertCompany(nameNew:string,nitNew:string,bussinessNew:string,dateNew:string,attendantNew:string){
+  insertUser(userNew:string,passNew:string,IdenNew:string,nameNew:string,lastNameNew:string,ageNew:string,
+    emailNew:string,cellPhoneNew:string,addressNew:string){
     this.datasToBD={
-      "Name":nameNew,
-      "NIT":nitNew,
-      "businessName":bussinessNew,
-      "applicationDate":dateNew,
-      "status":this.statusNew,
-      "attendant":attendantNew
+      "address":addressNew,
+      "age":ageNew,
+      "cellphone":cellPhoneNew,
+      "email":emailNew,
+      "identification":IdenNew,
+      "lastname":lastNameNew,
+      "name":nameNew,
+      "password":passNew,
+      "username":userNew,
     }
     console.log(this.datasToBD)
 
-    this.companyService.addCompanies(this.datasToBD).subscribe((result)=>{
+    this.usuarioService.addUsers(this.datasToBD).subscribe((result)=>{
       console.warn(result)
     })
-
-    //window.location.reload();
-    return this.datasToBD;
+    window.location.reload();
+    //return this.datasToBD;
   }
 
-  UpdateCompany(nameNew:string,nitNew:string,bussinessNew:string,dateNew:string,attendantNew:string){
-    this.IdCompany=this.companyList[this.index].url;
+  UpdateUsers(userNew:string,passNew:string,IdenNew:string,nameNew:string,lastNameNew:string,ageNew:string,
+    emailNew:string,cellPhoneNew:string,addressNew:string){
+    this.IdCompany=this.userList[this.index].url;
     this.datasToBD={
-      "Name":nameNew,
-      "NIT":nitNew,
-      "businessName":bussinessNew,
-      "applicationDate":dateNew,
-      "status":this.statusNew,
-      "attendant":attendantNew
+      "address":addressNew,
+      "age":ageNew,
+      "cellphone":cellPhoneNew,
+      "email":emailNew,
+      "identification":IdenNew,
+      "lastname":lastNameNew,
+      "name":nameNew,
+      "password":passNew,
+      "username":userNew,
     }
     console.log(this.IdCompany)
 
-    this.companyService.setCompanies(this.datasToBD,this.IdCompany).subscribe((result)=>{
+    this.usuarioService.setUsers(this.datasToBD,this.IdCompany).subscribe((result)=>{
       console.warn(this.IdCompany)
     })
     //window.location.reload();

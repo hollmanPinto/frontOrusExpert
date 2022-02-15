@@ -6,19 +6,19 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CompaniesService {
-  url='https://djangoorus.herokuapp.com/company/';
+export class UsuariosService {
+  url='http://localhost:8080/user';
   constructor(private http: HttpClient) {
     console.log('http service')
    }
 
-   getCompanies():any{
+   getUsers():any{
      return this.http.get(this.url)
    }
-   addCompanies(data:any){
+   addUsers(data:any){
     return this.http.post(this.url,data)
    }
-   setCompanies(data:any,putUrl:string){
+   setUsers(data:any,putUrl:string){
     return this.http.put(putUrl,data)
    }
    deleteCompanies(putUrl:string){

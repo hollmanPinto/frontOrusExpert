@@ -1,33 +1,33 @@
 <br>
 <div class="container">
 	<div class="row col-lg-12 col-sm-12 text-center">
-		<h1 class="fw-light">List Of Companies</h1>
+		<h1 class="fw-light">Lista de Usuarios</h1>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col-lg-4 col-12">
 			<div class="row">
 				<div class="col-4 d-block d-sm-block d-md-none">
-					<button type="button" class="btn btn-warning" (click)="modal.open(insert)">Insert</button>
+					<button type="button" class="btn btn-warning" (click)="modal.open(insert)">Insertar</button>
 				</div>
 				<div class="col-4 d-block d-sm-block d-md-none">
-					<button type="button" class="btn btn-warning" (click)="modal.open(update)">Update</button>
+					<button type="button" class="btn btn-warning" (click)="modal.open(update)">Actualizar</button>
 				</div>
 				<div class="col-4 d-block d-sm-block d-md-none">
-					<button type="button" class="btn btn-danger">Delete</button>
+					<button type="button" class="btn btn-danger">Eliminar</button>
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-4 col-md-2 d-none d-sm-none d-md-block">
 			<div class="row">
 				<div class="col-lg-4 d-none d-sm-none d-md-block">
-					<button type="button" class="btn btn-warning" (click)="modal.open(insert)">Insert</button>
+					<button type="button" class="btn btn-warning" (click)="modal.open(insert)">Insertar</button>
 				</div>
 				<div class="col-lg-4 d-none d-sm-none d-md-block">
-					<button type="button" class="btn btn-warning" (click)="modal.open(update)">Update</button>
+					<button type="button" class="btn btn-warning" (click)="modal.open(update)">Actualizar</button>
 				</div>
 				<div class="col-lg-4 d-none d-sm-none d-md-block">
-					<button type="button" class="btn btn-danger" (click)="deleteAlert()">Delete</button>
+					<button type="button" class="btn btn-danger" (click)="deleteAlert()">Eliminar</button>
 				</div>
 			</div>
 		</div>
@@ -35,24 +35,45 @@
 	</div>
 	<div class=row>
 		<div class="col-sm-12 col-lg-6 form-floating pt-2">
-			<input readonly type="text" class="form-control" id="floatingInput" value={{companyList[index].Name}}>
-			<label for="floatingInput">Name</label>
+			<input readonly type="text" class="form-control" id="floatingInput" value={{userList[index].username}}>
+			<label for="floatingInput">Usuario</label>
 		</div>
 		<div class="col-sm-12 col-lg-6 form-floating pt-2">
-			<input readonly type="text" class="form-control" id="floatingInput" value={{companyList[index].NIT}}>
-			<label for="floatingInput">Identification</label>
+			<input readonly type="text" class="form-control" id="floatingInput" value={{userList[index].identification}}>
+			<label for="floatingInput">Identificacion</label>
 		</div>
 	</div>	
 	<div class=row>
 		<div class="col-sm-12 col-lg-6 form-floating pt-2">
-			<input readonly type="text" class="form-control" id="floatingInput" value={{companyList[index].businessName}}>
-			<label for="floatingInput">Business Name</label>
+			<input readonly type="text" class="form-control" id="floatingInput" value={{userList[index].name}}>
+			<label for="floatingInput">Nombre</label>
 		</div>
 		<div class="col-sm-12 col-lg-6 form-floating pt-2">
-			<input readonly type="text" class="form-control" id="floatingInput" value={{companyList[index].applicationDate}}>
-			<label for="floatingInput">Application Date</label>
+			<input readonly type="text" class="form-control" id="floatingInput" value={{userList[index].lastname}}>
+			<label for="floatingInput">Apellido</label>
 		</div>
 	</div>
+	<div class=row>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value={{userList[index].age}}>
+			<label for="floatingInput">Edad</label>
+		</div>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value={{userList[index].email}}>
+			<label for="floatingInput">Correo Electronico</label>
+		</div>
+	</div>
+	<div class=row>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value={{userList[index].cellphone}}>
+			<label for="floatingInput">Telefono</label>
+		</div>
+		<div class="col-sm-12 col-lg-6 form-floating pt-2">
+			<input readonly type="text" class="form-control" id="floatingInput" value={{userList[index].address}}>
+			<label for="floatingInput">Direccion</label>
+		</div>
+	</div>
+	<!--
 	<div class=row>
 		<div *ngIf="companyList[0].status;else falseBlock" class="col-sm-12 col-lg-6 form-floating pt-2">
 			<input readonly type="text" class="form-control" id="floatingInput" value="Validate">
@@ -70,15 +91,15 @@
 			<label for="floatingInput">Company Status</label>
 		</div>
 	</ng-template>
-
+-->
 	<br>
 	<div class="row">
 		<div class="col-3 d-block d-sm-block d-md-none"></div>
 		<div class="col-3 d-block d-sm-block d-md-none">
-			<button type="button" class="btn btn-success btn-sm" (click)="decrementCompany()">Back</button>
+			<button type="button" class="btn btn-success btn-sm" (click)="decrementUser()">Anterior</button>
 		</div>
 		<div class="col-3 d-block d-sm-block d-md-none">
-			<button type="button" class="btn btn-info btn-sm" (click)="incrementCompany()">Next</button>
+			<button type="button" class="btn btn-info btn-sm" (click)="incrementUser()">Siguiente</button>
 		</div>
 		<div class="col-3 d-block d-sm-block d-md-none"></div>
 	</div>
@@ -86,20 +107,20 @@
 		<div class="col-md-2 d-none d-sm-none d-md-block"></div>
 		<div class="col-md-2 d-none d-sm-none d-md-block"></div>
 		<div class="col-md-2 d-none d-sm-none d-md-block">
-			<button type="button" class="btn btn-success btn-sm" (click)="decrementCompany()">Back Company</button>
+			<button type="button" class="btn btn-success btn-sm" (click)="decrementUser()">Anterior</button>
 		</div>
 		<div class="col-md-2 d-none d-sm-none d-md-block">
-			<button type="button" class="btn btn-info btn-sm "(click)="incrementCompany()">Next Company</button>
+			<button type="button" class="btn btn-info btn-sm "(click)="incrementUser()">Siguiente</button>
 		</div>
 		<div class="col-md-2 d-none d-sm-none d-md-block"></div>
 		<div class="col-md-2 d-none d-sm-none d-md-block"></div>
 	</div>
 </div>
 
-<!--INSERT COMPANY MODAL-->
+<!--INSERT USER MODAL-->
 <ng-template #insert let-modal>
 	<div class="modal-header">
-		<h4 class="modal-title">Insert Company</h4>
+		<h4 class="modal-title">Insertar Usuario</h4>
 		<button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
 			<span aria-hidden="true">&times;</span>
 		</button>
@@ -107,25 +128,42 @@
 	<div class="modal-body">
 		<div class="row">
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtNameNew class="form-control" id="floatingInput" value="">
-				<label for="floatingInput">Name</label>
+				<input type="text" #txtUserNew class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Usuario</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtNitNew class="form-control" id="floatingInput" value="">
-				<label for="floatingInput">Identification</label>
+				<input type="password" #txtPassNew class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Contraseña</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtBussinessNew  class="form-control" id="floatingInput" value="">
-				<label for="floatingInput">Business Name</label>
+				<input type="text" #txtIdenNew class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Identificacion</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtDateNew class="form-control" id="floatingInput" value="">
-				<label for="floatingInput">Application Date</label>
+				<input type="text" #txtNameNew  class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Nombre</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtAttendantNew  class="form-control" id="floatingInput" value="">
-				<label for="floatingInput">Attendant Name</label>
+				<input type="text" #txtLastNameNew class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Apellido</label>
 			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" #txtAgeNew  class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Edad</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" #txtEmailNew  class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Correo Electronico</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" #txtCellphoneNew  class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Telefono</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" #txtAddressNew  class="form-control" id="floatingInput" value="">
+				<label for="floatingInput">Direccion</label>
+			</div>
+			<!--
 			<div class="col-lg-12 form-floating pt-2 ">
 				<div ngbDropdown>
 					<button class={{btnStyle}} id="gfg" ngbDropdownToggle>{{validateButton}}</button>
@@ -135,19 +173,21 @@
 					</div>
 				</div>	
 			</div>
+			-->
 		</div>
 	</div>
 	<br>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="insertCompany(txtNameNew.value,txtNitNew.value
-		,txtBussinessNew.value,txtDateNew.value,txtAttendantNew.value)">Insert</button>
+		<button type="button" class="btn btn-success" (click)="insertUser(txtUserNew.value,txtPassNew.value,txtIdenNew.value
+		,txtNameNew.value,txtLastNameNew.value,txtAgeNew.value,txtEmailNew.value,txtCellphoneNew.value,
+		txtAddressNew.value)">Insertar</button>
 	</div>
 </ng-template>
 
-<!--UPDATE COMPANY MODAL-->
+<!--UPDATE USER MODAL-->
 <ng-template #update let-modal>
 	<div class="modal-header">
-		<h4 class="modal-title">Update Company</h4>
+		<h4 class="modal-title">Actualizar Usuario</h4>
 		<button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
 			<span aria-hidden="true">&times;</span>
 		</button>
@@ -155,25 +195,42 @@
 	<div class="modal-body">
 		<div class="row">
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtNameNew class="form-control" id="floatingInput" value={{companyList[index].Name}}>
-				<label for="floatingInput">Name</label>
+				<input type="text" #txtUserNew class="form-control" id="floatingInput" value={{userList[index].username}}>
+				<label for="floatingInput">Usuario</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtNitNew class="form-control" id="floatingInput" value={{companyList[index].NIT}}>
-				<label for="floatingInput">Identification</label>
+				<input type="password" #txtPassNew class="form-control" id="floatingInput" value={{userList[index].password}}>
+				<label for="floatingInput">Contraseña</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtBussinessNew class="form-control" id="floatingInput" value={{companyList[index].businessName}}>
-				<label for="floatingInput">Business Name</label>
+				<input type="text" #txtIdenNew class="form-control" id="floatingInput" value={{userList[index].identification}}>
+				<label for="floatingInput">Identificacion</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtDateNew class="form-control" id="floatingInput" value={{companyList[index].applicationDate}}>
-				<label for="floatingInput">Application Date</label>
+				<input type="text" #txtNameNew class="form-control" id="floatingInput" value={{userList[index].name}}>
+				<label for="floatingInput">Nombre</label>
 			</div>
 			<div class="col-lg-12 form-floating pt-2 ">
-				<input type="text" #txtAttendantNew class="form-control" id="floatingInput" value={{companyList[index].attendant}}>
-				<label for="floatingInput">Attendant Name</label>
+				<input type="text" #txtLastNameNew class="form-control" id="floatingInput" value={{userList[index].lastname}}>
+				<label for="floatingInput">Apellido</label>
 			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" #txtAgeNew class="form-control" id="floatingInput" value={{userList[index].age}}>
+				<label for="floatingInput">Edad</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" #txtEmailNew class="form-control" id="floatingInput" value={{userList[index].email}}>
+				<label for="floatingInput">Correo Electronico</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" #txtCellphoneNew class="form-control" id="floatingInput" value={{userList[index].cellphone}}>
+				<label for="floatingInput">Telefono</label>
+			</div>
+			<div class="col-lg-12 form-floating pt-2 ">
+				<input type="text" #txtAddressNew class="form-control" id="floatingInput" value={{userList[index].address}}>
+				<label for="floatingInput">Direccion</label>
+			</div>
+			<!--
 			<div class="col-lg-12 form-floating pt-2 ">
 				<div ngbDropdown>
 					<button class={{btnStyle}} id="gfg" ngbDropdownToggle>{{validateButton}}</button>
@@ -183,10 +240,12 @@
 					</div>
 				</div>	
 			</div>
+			-->
 		</div>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-success" (click)="UpdateCompany(txtNameNew.value,txtNitNew.value
-		,txtBussinessNew.value,txtDateNew.value,txtAttendantNew.value)">Update</button>
+		<button type="button" class="btn btn-success" (click)="UpdateUsers(txtUserNew.value,txtPassNew.value,txtIdenNew.value
+		,txtNameNew.value,txtLastNameNew.value,txtAgeNew.value,txtEmailNew.value,txtCellphoneNew.value,
+		txtAddressNew.value)">Actualizar</button>
 	</div>
 </ng-template>
