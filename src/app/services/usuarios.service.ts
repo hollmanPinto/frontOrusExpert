@@ -18,10 +18,10 @@ export class UsuariosService {
    addUsers(data:any){
     return this.http.post(this.url,data)
    }
-   setUsers(data:any,putUrl:string){
-    return this.http.put(putUrl,data)
+   setUsers(data:any){
+    return this.http.post(this.url,data)
    }
-   deleteCompanies(putUrl:string){
-    return this.http.delete(putUrl)
+   deleteUsers(id:string){
+    return this.http.delete(`${this.url}/${id}`)
    }
 }

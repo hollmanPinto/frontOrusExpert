@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   btnStyle:string=`${"btn btn-outline-info"}`
   datasToBD:object={}
 
-  //insert company variables
+  //insert user variables
   nameCompanyNew:string='';
   nitCompanyNew:string='';
   bussinessNameCompanyNew:string='';
@@ -25,8 +25,8 @@ export class AppComponent implements OnInit{
   statusNew:boolean=false;
   attendantNew:string='';
 
-  //update compaby variables
-  IdCompany:string='';
+  //update user variables
+  IdUser:string='';
 
   constructor(
     private usuarioService:UsuariosService, 
@@ -58,19 +58,18 @@ export class AppComponent implements OnInit{
     this.statusNew=false;
   }
   deleteAlert() {
-    const confirmed=window.confirm('Are you Sure delete this Company?');
+    const confirmed=window.confirm('Está seguro de eliminar este Usuario?');
     if(confirmed){
-      this.IdCompany=this.userList[this.index].url;
-      this.usuarioService.deleteCompanies(this.IdCompany).subscribe((result)=>{
-      console.warn(this.IdCompany)
-      window.location.reload();
-      
+      this.IdUser=this.userList[this.index].id;
+      this.usuarioService.deleteUsers(this.IdUser).subscribe((result)=>{
+      //console.warn(this.IdUser)
+      window.location.reload();  
       })
     }
     
   }
 
-  //Function for insert additional companies in DB
+  //Function for insert additional users in DB
   insertUser(userNew:string,passNew:string,IdenNew:string,nameNew:string,lastNameNew:string,ageNew:string,
     emailNew:string,cellPhoneNew:string,addressNew:string){
     this.datasToBD={
@@ -89,14 +88,15 @@ export class AppComponent implements OnInit{
     this.usuarioService.addUsers(this.datasToBD).subscribe((result)=>{
       console.warn(result)
     })
-    window.location.reload();
+    //window.location.reload();
     //return this.datasToBD;
   }
 
-  UpdateUsers(userNew:string,passNew:string,IdenNew:string,nameNew:string,lastNameNew:string,ageNew:string,
+  async UpdateUsers(userNew:string,passNew:string,IdenNew:string,nameNew:string,lastNameNew:string,ageNew:string,
     emailNew:string,cellPhoneNew:string,addressNew:string){
-    this.IdCompany=this.userList[this.index].url;
+    this.IdUser=this.userList[this.index].id;
     this.datasToBD={
+      "id":this.IdUser,
       "address":addressNew,
       "age":ageNew,
       "cellphone":cellPhoneNew,
@@ -107,12 +107,12 @@ export class AppComponent implements OnInit{
       "password":passNew,
       "username":userNew,
     }
-    console.log(this.IdCompany)
+    console.log(this.IdUser)
 
-    this.usuarioService.setUsers(this.datasToBD,this.IdCompany).subscribe((result)=>{
-      console.warn(this.IdCompany)
+    this.usuarioService.setUsers(this.datasToBD).subscribe((result)=>{
+      console.warn(this.IdUser)
     })
-    //window.location.reload();
-    return this.datasToBD;
+    await this.datasToBD;
+    //window.location.reload(); 
   }
 }
