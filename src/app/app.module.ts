@@ -3,11 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule }from '@ng-bootstrap/ng-bootstrap';
-
+import { HojaComponent } from './hoja/hoja.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HojaComponent,
   ],
   imports: [
     BrowserModule,
